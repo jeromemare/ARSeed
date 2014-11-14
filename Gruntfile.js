@@ -4,7 +4,10 @@
 var _ = require('lodash');
 var path = require('path');
 var cordovaCli = require('cordova');
-var spawn = require('child_process').spawn;
+
+// #JME# Fix generator template on windows 8
+//var spawn = require('child_process').spawn;
+var spawn = process.platform === 'win32' ? require('win-spawn') : require('child_process').spawn;
 
 module.exports = function (grunt) {
 
